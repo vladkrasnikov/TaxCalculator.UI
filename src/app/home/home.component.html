@@ -1,0 +1,41 @@
+<div>
+  <h1>Calculate Tax</h1>
+
+  <div>
+    Gross Anual Salary: <input type="number" [(ngModel)]="tax">
+    <button (click)="calculateTax()">Calculate</button>
+    <div *ngIf="taxModel">
+      <ul>
+        <li>Gross Annual Salary: £ {{this.taxModel.grossAnnualSalary | number: '1.1-2'}}</li>
+        <li>Gross Monthly Salary: £ {{this.taxModel.grossMonthlySalary | number: '1.1-2'}}</li>
+        <li>Net Annual Salary: £ {{this.taxModel.netAnnualSalary | number: '1.1-2'}}</li>
+        <li>Net Monthly Salary: £ {{this.taxModel.netMonthlySalary | number: '1.1-2'}}</li>
+        <li>Annual Tax Paid: £ {{this.taxModel.annualTaxPaid | number: '1.1-2'}}</li>
+        <li>Monthly Tax Paid: £ {{this.taxModel.monthlyTaxPaid | number: '1.1-2'}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Receive Tax History</h2>
+
+  <div>
+    <button (click)="getTaxHistory()">Get Tax History</button>
+  </div>
+  <div *ngIf="taxHistory">
+    <ul>
+      <li *ngFor="let tax of taxHistory">
+        <ul>
+          <li>Gross Annual Salary: £ {{tax.grossAnnualSalary | number: '1.1-2'}}</li>
+          <li>Gross Monthly Salary: £ {{tax.grossMonthlySalary | number: '1.1-2'}}</li>
+          <li>Net Annual Salary: £ {{tax.netAnnualSalary | number: '1.1-2'}}</li>
+          <li>Net Monthly Salary: £ {{tax.netMonthlySalary | number: '1.1-2'}}</li>
+          <li>Annual Tax Paid: £ {{tax.annualTaxPaid | number: '1.1-2'}}</li>
+          <li>Monthly Tax Paid: £ {{tax.monthlyTaxPaid | number: '1.1-2'}}</li>
+          <li>Сreated At: {{tax.createdAt}}</li>
+        </ul>
+        <hr>
+      </li>
+    </ul>
+  </div>
+</div>
+
